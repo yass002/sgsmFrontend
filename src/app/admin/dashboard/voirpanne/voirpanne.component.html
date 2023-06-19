@@ -1,0 +1,35 @@
+<div class="container"> <div class="ticker"> <div class="title"><h5>Tous les pannes</h5></div> <div class="news"> <marquee class="news-content"> <p>DETAILS </p>   </marquee> </div> </div> </div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div *ngFor="let p of pannedAsc"  class="col-4">
+    
+    <div class="card p-1 mt-4"  style="width: 18rem;">
+      
+        <img class="card-img-top"   [src]="p.ascenseur.imageName" height="200px" width="900px" alt="Card image cap"> 
+     
+        <div class="card-body">
+          <h5 class="card-title">{{p.ascenseur.ref}}</h5>
+          <p class="card-text">{{p.ascenseur.marque}}</p>
+        
+        
+        </div>
+        <div class="card-footer">
+          <div class="btn-wrapper text-center d-flex justify-content-between">
+    <button class="btn btn-warning btn-sm text-white d-flex align-items-center" [routerLink]="['/acceuil/detailpanne',p.ascenseur.id]" >Consulter</button>
+    <a class="btn btn-gradient-success"  [routerLink]="['/tache',p.id]" >Affecter</a>
+
+          </div>
+        </div>
+      </div>
+    
+      
+      </div>
+    
+      
+    
+    
+    </div>
+    
+    
+    </div>

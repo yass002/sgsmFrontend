@@ -1,0 +1,69 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <a routerLink="/acceuil" class="nav-link">
+        <div class="nav-profile-image">
+          <img src="assets/images/sgsmAscenserus.jpeg" alt="profile">
+          <span class="login-status busy"></span> <!--change to offline or busy as needed-->              
+        </div>
+        <div class="nav-profile-text">
+          <span class="font-weight-bold mb-2">Super Admin</span>
+          <span class="text-secondary text-small">Yassine Leith Olfa Laila</span>
+        </div>
+        <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+      </a>
+    </li>
+    <li *ngIf="show" class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+      <a class="nav-link" routerLink="acceuil/gerance/consulterclient" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Consulter Clients</span>
+        <i class="mdi mdi-account-key menu-icon"></i>
+      </a>
+    </li>
+    <li *ngIf="show" class="nav-item" >
+      <a class="nav-link" (click)="uiBasicCollapsed = !uiBasicCollapsed" [attr.aria-expanded]="uiBasicCollapsed" aria-controls="ui-basic">
+        <span class="menu-title">Gestion des Clients</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-tune-vertical"></i>
+      </a>
+      <div class="collapse" id="ui-basic" [ngbCollapse]="!uiBasicCollapsed">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="acceuil/gerance/ajoutclient" >Ajouter Client</a></li>
+          
+        </ul>
+      </div>
+    </li>
+
+      <li  *ngIf="show"   class="nav-item"  >
+        <a class="nav-link" (click)="uiBasicCollapsede = !uiBasicCollapsede" [attr.aria-expanded]="uiBasicCollapsede" aria-controls="ui-basic">
+          <span class="menu-title">Gestion des Techniciens</span>
+          <i class="menu-arrow"></i>
+          <i class="mdi mdi mdi-tune"></i>
+        </a>
+        <div  class="collapse" id="ui-basic" [ngbCollapse]="!uiBasicCollapsede">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" routerLink="/acceuil/consultertech"  routerLinkActive="active" >Consulter Techniciens</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li *ngIf="!show" class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+        <a class="nav-link" [routerLink]="['/client/sgsm/',id]" routerLinkActive #dashboard="routerLinkActive">
+          <span class="menu-title">Lister les ascenseurs</span>
+          <i class="mdi mdi-account-multiple menu-icon"></i>
+        </a>
+  
+  </li>
+
+  <li *ngIf="!show" class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+    <a class="nav-link" [routerLink]="['client/voirmespannes',id]" routerLinkActive #dashboard="routerLinkActive">
+      <span class="menu-title">Lister mes pannes</span>
+      <i class="mdi mdi-account-multiple menu-icon"></i>
+    </a>
+
+</li>
+
+  </ul>
+</nav>
+<body>
+
+</body>

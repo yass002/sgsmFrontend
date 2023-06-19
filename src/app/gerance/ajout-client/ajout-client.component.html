@@ -1,0 +1,120 @@
+
+<form [formGroup]="Client">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Ajouter Un Client</h4>
+       
+          <p class="card-description">
+            Personal info
+          </p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">First Name</label>
+                <div class="col-sm-9">
+                  <input type="text"  formControlName="firstName" placeholder="First Name" id="firstName" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Last Name</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="lastName" placeholder="Last Name" id="lastName" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Numéro Tél :</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="numTel" placeholder="Numéro de telephone" id="numTel" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Numéro Fix:</label>
+                <div class="col-sm-4">
+                  <input type="text" formControlName="numFix" name="numFix" placeholder="Fixe" id="numFix" class="form-control" />
+
+                </div>
+               
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Email :</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="email"  placeholder="Email" id="email" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="card-description">
+            Address
+          </p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Address </label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="adresse" placeholder="Adresse" id="adresse" class="form-control" />
+                </div>
+              </div>
+            </div>  
+          </div>  
+          <p class="card-description">
+            Ascenseurs
+          </p>
+          <div formArrayName="ascenseur">
+            <div *ngFor="let asc of Client.controls.ascenseur['controls']; index as i " [formGroupName]="i">
+          <div class="row">
+           
+            <div class="col-md-4">
+              <div class="form-group row">
+                
+                <label class="col-sm-3 col-form-label">Marque:</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="marque"  placeholder="marque" id="marque" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Image:</label>
+                <div class="col-sm-6">
+                  <div class="custom-file">
+                    <input    type="file" formControlName="image" (change)="onFileSelected($event)" >
+                </div>
+               
+                </div>
+               
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <button (click)="addnew()" type="button" class="btn btn-gradient-info btn-rounded btn-icon">
+                <i class="mdi mdi-plus"></i>
+              </button>
+              <button (click)="delete(i)" type="button" class="btn btn-danger btn-rounded btn-icon">
+                <i class="mdi mdi-delete"></i>
+              </button>
+            </div>
+          </div>  
+          </div>
+        </div>
+          <div class="modal-footer">
+            <button type="submit" value="update" class="btn btn-success" (click)="ajouterClient()" >Submit</button>
+            <button type="reset" class="btn btn-light" data-dismiss="modal">Clear</button>
+          </div> 
+      </div>
+      </div>
+  </div>
+
+</form>

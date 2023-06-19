@@ -1,0 +1,55 @@
+<div class="vh-0"  style="background-color: #f4f5f7; ">
+    <div class="container py-5 h-100">
+      <div class="" style="width: 2200px;" >
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-5" style="border-radius: .15rem;">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white"
+                style="border-top-left-radius: .15rem; border-bottom-left-radius: .10rem;">
+                <img [src]="panneDetails.ascenseur.imageName"
+                  alt="Avatar" class="img-fluid my-5" style="width: 180px;" />
+              
+                <p>{{clientdata.firstName | uppercase}} {{clientdata.lastName | uppercase}}</p>
+                <i class="far fa-edit mb-5"></i>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6>Information</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Adresse</h6>
+                      <p class="text-muted">{{clientdata.adresse}}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Phone</h6>
+                      <p class="text-muted">{{clientdata.numTel}}</p>
+                    </div>
+                  </div>
+                  <h6>Panne Details</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Date : </h6>
+                      <p class="text-muted">{{panneDetails.date | date}}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Description : </h6>
+                      <p class="text-muted">{{panneDetails.descPanne}}</p>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-start">
+                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                  </div>
+                  <button class="btn btn-primary btn-sm text-white d-flex align-items-center" [routerLink]="['/client/sgsm',clientdata.id]" >Voir Tous</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>

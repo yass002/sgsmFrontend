@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Mes acenseurs en panne</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    Marque 
+                  </th>
+                  <th>
+                    Image
+                  </th>
+                  <th>
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody >
+                <tr *ngFor="let lp of listedPanne">
+                  <td>
+                    
+                   {{lp.marque}}
+                  </td>
+                  <td>
+                    <a [href]="lp.imageName" ><img [src]="lp.imageName" alt=""></a>
+
+                  </td>
+                  <td>
+                    <label class="badge badge-gradient-warning">En Panne</label>
+                  </td>
+                
+                </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

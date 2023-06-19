@@ -1,0 +1,80 @@
+<form #updateForm="ngForm" (ngSubmit)="updateClient()">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Modifier les informations neccessaires</h4>
+         
+            <p class="card-description">
+              Personal info
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">First Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" #firstName [(ngModel)]="ClientToUpdate.firstName" name="firstName" placeholder="First Name" id="firstName" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Last Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" #lastName [(ngModel)]="ClientToUpdate.lastName" name="lastName" placeholder="Last Name" id="lastName" class="form-control" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Numéro Tél :</label>
+                  <div class="col-sm-9">
+                    <input type="text" #numTel [(ngModel)]="ClientToUpdate.numTel" name="numTel" placeholder="Numéro de telephone" id="numTel" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Numéro Fix:</label>
+                  <div class="col-sm-4">
+                    <input type="text" #numFix [(ngModel)]="ClientToUpdate.numFix" name="numFix" placeholder="Fixe" id="numFix" class="form-control" />
+
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Email :</label>
+                  <div class="col-sm-9">
+                    <input type="text" #email [(ngModel)]="ClientToUpdate.email" name="email" placeholder="Email" id="email" class="form-control" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="card-description">
+              Address
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Address </label>
+                  <div class="col-sm-9">
+                    <input type="text"  #adresse [(ngModel)]="ClientToUpdate.adresse" name="adresse" placeholder="Adresse" id="adresse" class="form-control" />
+                  </div>
+                </div>
+              </div>  
+            </div>  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" (click)="modal.close()">Submit</button>
+              <button type="button" class="btn btn-light" data-dismiss="modal" (click)="modal.close()">Cancel</button>
+            </div> 
+        </div>
+        </div>
+    </div>
+
+  </form>

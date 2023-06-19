@@ -1,0 +1,81 @@
+<div class="container">
+<div class="row">
+    <div class="col-8">
+        <button [routerLink]="['/client/ajouteasc',id]" type="button" class="ml-auto p-2 btn btn-gradient-success btn-icon-text">
+            <i class="mdi mdi-file-check btn-icon-prepend"></i>
+            Ajouter ascenseur
+          </button>
+    
+  </div>
+  
+<div class="col-4">
+    <input type="search" [(ngModel)]="searchText" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+
+
+</div>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="container mt-5" >
+<div class="row">
+    <div *ngFor="let asc of ascenseur  | filter:searchText "  class="col-4">
+<!--hedhaaa lowel-->
+<div  class="card p-1 mt-4" >
+  
+    <img class="card-img-top"   [src]="asc.imageName" height="200px" width="900px" alt="Card image cap">
+ 
+    <div class="card-body" >
+      <h5 class="card-title">{{asc.ref}}</h5>
+      <p class="card-text">{{asc.marque}}</p>
+    
+    
+    </div>
+    <div class="card-footer">
+      <div class="btn-wrapper text-center d-flex justify-content-between">
+        <a class="btn btn-success  btn-sm text-white d-flex align-items-center">Voir plus détails</a>
+        <a class="btn btn-warning" *ngIf="role !== 'Admin'" [routerLink]="[ '/client/declarepanne' , asc.id]">Declarer panne</a>
+        <a class="btn btn-warning" [routerLink]="[ '/client/voirpanne' , asc.id]" *ngIf="role == 'Admin'" >Voir panne</a>
+
+      </div>
+    </div>
+  </div>
+  <!--hedha theni-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  </div>
+
+  
+
+
+</div>
+
+
+</div>
+
+
+

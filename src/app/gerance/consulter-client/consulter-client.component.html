@@ -1,0 +1,173 @@
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+      <div class="card">
+          
+        <div class="card-body">
+          <div class="d-flex">
+          <h4 class="p-2 card-title">Nos Clients</h4>
+          <button type="button" (click)="gotoAddClient()" class="ml-auto p-2 btn btn-outline-info btn-icon-text">
+              <i class="mdi mdi-file-check btn-icon-prepend"></i>
+              Ajouter un client
+            </button>
+      </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Email</th>
+                  <th>Téléphone</th>
+                  <th>Fixe</th>
+                  <th>Adresse</th>
+                  <th>Modifier/Supprimer</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let u of users">
+                <tr>
+                  <td>{{u.firstName}}</td>
+                  <td>{{u.lastName}}</td>
+                  <td>{{u.email}}</td>
+                  <td>{{u.numTel}}</td>
+                  <td>{{u.numFix}}</td>
+                  <td>{{u.adresse}}</td>
+                  <td>
+                   
+               <button type="button" class="btn btn-gradient-success" (click)="openModal(exampleModalContent,u.id)">Modifier</button>
+                          
+               <button type="button" class="btn btn-danger" (click)="openModalforverif(verif,u.id)">Supprimer</button>
+
+                  
+              <a type="button" [routerLink]="['/client/sgsm/',u.id]">
+                Consulter ascenseurs
+              </a>
+                </td>
+
+                </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <ng-template class="modal fade" #verif let-modal>
+<div class="modal-content">
+  <div class="modal-header">
+    <div class="modal-title"> Vous êtes sur?</div>
+    <div class="modal-body">
+      test
+    </div>
+  </div>
+</div>
+
+    </ng-template>
+
+
+
+
+
+    
+        <ng-template class="modal fade" #exampleModalContent let-modal>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modifier le client : {{TryToModify.name | uppercase }} {{TryToModify.prenom | uppercase}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+             <!-- houni bde !-->
+             <form #updateForm="ngForm" (ngSubmit)="updateClient()">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Modifier les informations neccessaires</h4>
+                   
+                      <p class="card-description">
+                        Personal info
+                      </p>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">First Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" #firstName [(ngModel)]="ClientToUpdate.firstName" name="firstName" placeholder="First Name" id="firstName" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Last Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" #lastName [(ngModel)]="ClientToUpdate.lastName" name="lastName" placeholder="Last Name" id="lastName" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Numéro Tél :</label>
+                            <div class="col-sm-9">
+                              <input type="text" #numTel [(ngModel)]="ClientToUpdate.numTel" name="numTel" placeholder="Numéro de telephone" id="numTel" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Numéro Fix:</label>
+                            <div class="col-sm-4">
+                              <input type="text" #numFix [(ngModel)]="ClientToUpdate.numFix" name="numFix" placeholder="Fixe" id="numFix" class="form-control" />
+          
+                            </div>
+                           
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Email :</label>
+                            <div class="col-sm-9">
+                              <input type="text" #email [(ngModel)]="ClientToUpdate.email" name="email" placeholder="Email" id="email" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="card-description">
+                        Address
+                      </p>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Address </label>
+                            <div class="col-sm-9">
+                              <input type="text"  #adresse [(ngModel)]="ClientToUpdate.adresse" name="adresse" placeholder="Adresse" id="adresse" class="form-control" />
+                            </div>
+                          </div>
+                        </div>  
+                      </div>  
+                      <div class="modal-footer">
+                        <button type="submit" value="update" class="btn btn-success" >Submit</button>
+                        <button type="button" class="btn btn-light" data-dismiss="modal" (click)="modal.close()">Cancel</button>
+                      </div> 
+                  </div>
+                  </div>
+              </div>
+          
+            </form>
+
+            </div>
+          </div>
+        </ng-template>
+  
+        
+        
+      
+          
